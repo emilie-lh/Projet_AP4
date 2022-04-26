@@ -1,4 +1,5 @@
-﻿using Encheres.Modeles;
+﻿using Android.Content.Res;
+using Encheres.Modeles;
 using Encheres.VuesModeles;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace Encheres.Vues
         private void CollectionView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             var current = (Enchere)e.CurrentSelection.FirstOrDefault();
-            Navigation.PushAsync(new PageEnchereVue(current));
+            Navigation.PushModalAsync(new PageEnchereVue(current));
         }
 
         private void classique_Clicked(object sender, EventArgs e)

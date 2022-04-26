@@ -13,7 +13,7 @@ namespace Encheres.VuesModeles
     class LoginVueModeles : BaseVueModele
     {
         // elle
-        /*
+        
         #region Attributs
         private readonly ApiAuthentification _apiServicesAuthentification = new ApiAuthentification();
         private string _password;
@@ -76,7 +76,7 @@ namespace Encheres.VuesModeles
                 if (connexion != default(User))
                 {
                     auth = true;
-                    await Application.Current.MainPage.Navigation.PushAsync(new ListeEnchereVue());
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new AccueilPageVue());
 
                 }
                 else
@@ -94,7 +94,7 @@ namespace Encheres.VuesModeles
         }
         #endregion
         
-        */
+        /*
 
         // moi
 
@@ -186,6 +186,6 @@ namespace Encheres.VuesModeles
             await Shell.Current.GoToAsync(route); // redirige vers la valeur d'objet route
         }
 
-        #endregion
+        #endregion */
     }
 }
