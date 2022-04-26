@@ -4,7 +4,7 @@
              x:Class="Encheres.Vues.LoginPageVue"
              Shell.NavBarIsVisible="False"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#1C375C">
+             BackgroundColor="WhiteSmoke">
     <ContentPage.Content>
         <StackLayout>
 

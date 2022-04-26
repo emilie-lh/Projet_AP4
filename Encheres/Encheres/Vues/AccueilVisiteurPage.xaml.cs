@@ -59,5 +59,18 @@ namespace Encheres.Vues
             await remote.ScrollToAsync(0, 0, true);
 
         }
+
+        private void Connect(object sender, EventArgs e)
+        {
+
+            Navigation.PushModalAsync(new RegisterVue());
+        
+    }
+
+        private void ButtonConexion(object sender, EventArgs e)
+        {
+
+            Navigation.PushModalAsync(new LoginPageVue());
+        }
     }
 }

@@ -10,6 +10,9 @@
                            TextColor="CadetBlue"
                            FontSize="Title"
                            />
+                    <Button  Text="s'incrire"   Clicked="Connect" Command="{Binding connect}"></Button>
+                    
+                    <Button  Text="se connecter"   Clicked="ButtonConexion" Command="{Binding connect}"></Button>
                 </StackLayout>
                 <Frame
                 HeightRequest="72" WidthRequest="280"
