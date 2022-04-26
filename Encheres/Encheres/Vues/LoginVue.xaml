@@ -22,13 +22,13 @@
 
                 <Entry x:Name="MailUtilisateur"
                             Placeholder="Email" 
-                            Text="{Binding EmailEntry}"
+                            Text="{Binding Email}"
                            Margin="25,0"
                     />
 
                 <Entry x:Name="txtMotDePasse"
                         Placeholder="Password"
-                        Text="{Binding PasswordEntry}"
+                        Text="{Binding Password}"
                         Margin="25,0"
                     />
 
@@ -40,13 +40,13 @@
                 <Button Text="Inscription"
                             FontSize="14"
                             BackgroundColor="Teal" 
-                            Command="{Binding CommandeButtonInscription}" Padding="0" Margin="0,50,0,0" CornerRadius="15"
+                            Command="{Binding ActionPageRegister}" Padding="0" Margin="0,50,0,0" CornerRadius="15"
                             Grid.Row="3" Grid.Column="0" 
                     />
 
                 <Button Text="CONNEXION"
                             FontSize="14"
-                            BackgroundColor="CadetBlue" Command="{Binding CommandeButtonConnexion}" 
+                            BackgroundColor="CadetBlue" Command="{Binding ActionPageAuthentification}" 
                             Padding="0" Margin="0,50,0,0" CornerRadius="15"
                             Grid.Row="3" Grid.Column="1" 
                     />
