@@ -7,16 +7,10 @@ using System.Text;
 namespace Encheres.Vues.Tests
 {
     [TestClass()]
-    public class LoginPageVueTests
+    public class LoginVueModele
     {
         [TestMethod()]
-        public void LoginPageVueTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void AccueilVisiteurPageTest()
+        public void OnSubmit()
         {
             throw new NotImplementedException();
         }
