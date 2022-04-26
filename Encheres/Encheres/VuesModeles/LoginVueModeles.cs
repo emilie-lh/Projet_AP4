@@ -165,7 +165,7 @@ namespace Encheres.VuesModeles
                     ServiceApi.ErrorCancel);
             else // sinon renvoi vers la page d'acceuil en tant qu'utilisateur connecté
             {
-                Application.Current.MainPage = new AccueilVisiteurPage();
+                Application.Current.MainPage = new AccueilPageVue();
             }
         }
 
