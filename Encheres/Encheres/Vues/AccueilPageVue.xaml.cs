@@ -15,10 +15,48 @@ namespace Encheres.Vues
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AccueilPageVue : ContentPage
     {
+        AccueilVueModele vueModel;
         public AccueilPageVue()
         {
             InitializeComponent();
            BindingContext  = new AccueilPageVueModele();
+
+        }
+        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CollectionView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            var current = (Enchere)e.CurrentSelection.FirstOrDefault();
+            Navigation.PushModalAsync(new PageEnchereVue(current));
+        }
+
+        private void classique_Clicked(object sender, EventArgs e)
+        {
+            vueModel.VisibleEnchereEnCoursTypeClassique = true;
+            vueModel.VisibleEnchereEnCoursTypeInverse = false;
+            vueModel.VisibleEnchereEnCoursTypeFlash = false;
+
+        }
+
+        private void inverse_Clicked(object sender, EventArgs e)
+        {
+            vueModel.VisibleEnchereEnCoursTypeClassique = false;
+            vueModel.VisibleEnchereEnCoursTypeInverse = true;
+            vueModel.VisibleEnchereEnCoursTypeFlash = false;
+        }
+
+        private void flash_Clicked(object sender, EventArgs e)
+        {
+            vueModel.VisibleEnchereEnCoursTypeClassique = false;
+            vueModel.VisibleEnchereEnCoursTypeInverse = false;
+            vueModel.VisibleEnchereEnCoursTypeFlash = true;
+        }
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await remote.ScrollToAsync(0, 0, true);
 
         }
     }

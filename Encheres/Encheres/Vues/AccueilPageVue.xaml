@@ -6,39 +6,123 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#1C375C">
     <ContentPage.Content>
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Image Grid.Row="0" Margin="0,30" Source="logo.png" Aspect="AspectFit" HeightRequest="120" WidthRequest="80"></Image>
-            <Frame Grid.Row="1" Margin="0,0,0,-40" BorderColor="#1C375C" HasShadow="True"  CornerRadius="50" HeightRequest="700">
-                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20,50,20,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="0"  Text="Bienvenue aux enchères SIO!" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" Margin="0,-10,0,0" HorizontalTextAlignment="Center"></Label>
-                    <Label Grid.Row="1" Margin="0,10,0,0" Text="C'est surtout dans les ventes aux enchères que le silence est d'or." TextColor="#1C375C"  HorizontalTextAlignment="Center"></Label>
-                    <Button Grid.Row="2" Text="Se connecter" BackgroundColor="#1C375C" CornerRadius="20"  Command="{Binding CommandeButtonLogin}"></Button>
-                    <Button Grid.Row="3" Text="Créer mon compte" BackgroundColor="#1C375C" CornerRadius="20"  Command="{Binding CommandeButtonRegister}" Margin="5,10,0,10"></Button>
-                    <StackLayout Grid.Row="4" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="20">
-                        <Image Source="icons.png" WidthRequest="60"
-                               HeightRequest="60" Aspect="AspectFit" ></Image>
-                        <Image Source="auction.png" WidthRequest="50"
-                               HeightRequest="50" Aspect="AspectFit"></Image>
-                        <Image Source="price.png" WidthRequest="50"
-                               HeightRequest="50" Aspect="AspectFit"></Image>
-                        <Image Source="agreement.png" WidthRequest="60"
-                               HeightRequest="60" Aspect="AspectFit"></Image>
+        <ScrollView x:Name="remote">
+            <StackLayout BackgroundColor="Whitesmoke">
+                <Frame
+                HeightRequest="72" WidthRequest="280"
+                BackgroundColor="WhiteSmoke" Padding="10"
+                HasShadow="True" Margin="10" CornerRadius="10"
+                HorizontalOptions="CenterAndExpand">
+                    <StackLayout VerticalOptions="Center" BackgroundColor="CadetBlue">
+                        <Button x:Name="classique" Clicked="classique_Clicked"  BackgroundColor="CadetBlue" CornerRadius="10" Text="Encheres Classiques en cours" HorizontalOptions="Center" WidthRequest="300" HeightRequest="72"/>
                     </StackLayout>
-                    <Label Grid.Row="5" Text="AP2 SIO2 Thereza" TextColor="#1C375C" FontAttributes="Bold" Margin="0,0,0,0" FontSize="15" HorizontalOptions="CenterAndExpand"></Label>
-                </Grid>
-            </Frame>
-        </Grid>
+
+                </Frame>
+                <Frame
+                HeightRequest="72" WidthRequest="280"
+                BackgroundColor="WhiteSmoke" Padding="10"
+                HasShadow="True" Margin="0" CornerRadius="10"
+                HorizontalOptions="CenterAndExpand">
+                    <StackLayout VerticalOptions="Center" BackgroundColor="CadetBlue">
+                        <Button x:Name="inverse" Clicked="inverse_Clicked" BackgroundColor="CadetBlue" CornerRadius="10" Text="Encheres inversées en cours"  HorizontalOptions="Center" WidthRequest="300" HeightRequest="72"/>
+
+                    </StackLayout>
+
+                </Frame>
+                <Frame
+                HeightRequest="72" WidthRequest="280"
+                BackgroundColor="WhiteSmoke" Padding="10"
+                HasShadow="True" Margin="10" CornerRadius="10"
+                HorizontalOptions="CenterAndExpand">
+                    <StackLayout VerticalOptions="Center" BackgroundColor="CadetBlue">
+                        <Button x:Name="flash" Clicked="flash_Clicked" CornerRadius="10" BackgroundColor="CadetBlue" Text="Encheres flash en cours"  HorizontalOptions="Center" WidthRequest="300" HeightRequest="72"/>
+
+                    </StackLayout>
+
+                </Frame>
+                <StackLayout VerticalOptions="Start" Padding="30,10,10,0">
+                    <CollectionView IsVisible="{Binding VisibleEnchereEnCoursTypeClassique}" ItemsSource="{Binding MaListeEncheresEnCoursTypeClassique}"  SelectionChanged="CollectionView_SelectionChanged_1"  SelectionMode="Single" BackgroundColor="WhiteSmoke">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10" Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*" />
+                                        <RowDefinition Height="1.5*" />
+                                        <RowDefinition Height="1*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding LeProduit.Photo}" Aspect="Fill" Grid.RowSpan="2" HeightRequest="100" Grid.Column="0"/>
+                                    <Label Text="{Binding LeProduit.Nom}" Grid.Row="1" Grid.Column="1" TextColor="Black" />
+                                    <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
+                                         VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+                <StackLayout VerticalOptions="Start" Padding="30,0,10,0">
+
+                    <CollectionView IsVisible="{Binding VisibleEnchereEnCoursTypeInverse}" ItemsSource="{Binding MaListeEncheresEnCoursTypeInverse}" SelectionChanged="CollectionView_SelectionChanged_1" SelectionMode="Single" BackgroundColor="WhiteSmoke">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10" Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*" />
+                                        <RowDefinition Height="1.5*" />
+                                        <RowDefinition Height="1*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding LeProduit.Photo}" Aspect="Fill" Grid.RowSpan="2" HeightRequest="100" Grid.Column="0"/>
+                                    <Label Text="{Binding LeProduit.Nom}" Grid.Row="1" Grid.Column="1" TextColor="Black" />
+                                    <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
+                                         VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </StackLayout>
+                <StackLayout VerticalOptions="Start" Padding="30,0,10,0">
+                    <CollectionView IsVisible="{Binding VisibleEnchereEnCoursTypeFlash}" ItemsSource="{Binding MaListeEncheresEnCoursTypeFlash}"  SelectionChanged="CollectionView_SelectionChanged_1" SelectionMode="Single" BackgroundColor="WhiteSmoke">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10" Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*" />
+                                        <RowDefinition Height="1.5*" />
+                                        <RowDefinition Height="1*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding LeProduit.Photo}" Aspect="Fill" Grid.RowSpan="2" HeightRequest="100" Grid.Column="0"/>
+                                    <Label Text="{Binding LeProduit.Nom}" Grid.Row="1" Grid.Column="1" TextColor="Black" />
+                                    <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
+                                         VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+                <Frame
+                    HeightRequest="80" WidthRequest="280"
+                BackgroundColor="WhiteSmoke" Padding="10"
+                HasShadow="True" Margin="40" CornerRadius="15"
+                HorizontalOptions="CenterAndExpand">
+                    <StackLayout VerticalOptions="Center" BackgroundColor="CadetBlue">
+                        <Button Text="remonte" Image="remonte.png" BackgroundColor="CadetBlue" CornerRadius="15" Clicked="Button_Clicked" HorizontalOptions="Center" WidthRequest="280" HeightRequest="80"></Button>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

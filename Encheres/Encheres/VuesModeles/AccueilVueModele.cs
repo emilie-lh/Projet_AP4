@@ -1,9 +1,12 @@
 ﻿using Encheres.Modeles;
 using Encheres.Services;
+using Encheres.Vues;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Encheres.VuesModeles
 {
@@ -17,7 +20,8 @@ namespace Encheres.VuesModeles
         private bool _visibleEnchereEnCoursTypeClassique = true;
         private bool _visibleEnchereEnCoursTypeInverse = true;
         private bool _visibleEnchereEnCoursTypeFlash = true;
-
+        private Command connect;
+        private Command inscrire;
         private readonly Api _apiServices = new Api();
 
         #endregion
@@ -25,14 +29,18 @@ namespace Encheres.VuesModeles
         public AccueilVueModele()
         {
             //GetListeEncheres();
+            Connect = new Command(ActionPageAuthentification);
+            Inscrire = new Command(ActionPageInscription);
             GetListeEnCheresEnCoursTypeClassique(1);
             GetListeEncheresEnCoursTypeInverse(2);
             GetListeEncheresEnCoursTypeFlash(3);
         }
 
-        
+
         #endregion
         #region Getters/Setters
+        public ICommand Connect { get; }
+        public ICommand Inscrire { get; }
         public ObservableCollection<Enchere> MaListeEncheres
         {
             get { return _maListeEncheres; }
@@ -107,6 +115,17 @@ namespace Encheres.VuesModeles
             MaListeEncheresEnCoursTypeFlash = await _apiServices.GetAllAsync2<Enchere>
                 ("api/getEncheresEnCours", Enchere.CollClasse, id);
             Enchere.CollClasse.Clear();
+        }
+
+        public async void ActionPageAuthentification()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new LoginPageVue());
+
+        }
+        public async void ActionPageInscription()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterVue());
+
         }
         #endregion
     }

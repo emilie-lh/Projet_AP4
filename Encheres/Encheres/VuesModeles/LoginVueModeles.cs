@@ -76,7 +76,7 @@ namespace Encheres.VuesModeles
                 if (connexion != default(User))
                 {
                     auth = true;
-                    await Application.Current.MainPage.Navigation.PushAsync(new AccueilPageVue());
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new AccueilPageVue());
 
                 }
                 else
