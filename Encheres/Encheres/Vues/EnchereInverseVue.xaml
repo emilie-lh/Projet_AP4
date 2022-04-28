@@ -53,6 +53,20 @@
             <Label Text="{Binding MonEnchere.Datedebut, StringFormat='Date Début: {0}'}"
                 TextColor="Black"
                 HorizontalOptions="CenterAndExpand" />
+
+            <ContentView>
+                <Frame HasShadow="True" CornerRadius="15" Margin="20" Padding="10" HeightRequest="120" BackgroundColor="#D8D8D8">
+                    <Grid RowDefinitions="2*,2*" ColumnDefinitions="180,100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                        <!--affichage du prix actuelle-->
+                        <Label  Grid.Row=" 0" Grid.Column="0" Text="Prix actuel :" HorizontalOptions="StartAndExpand"  FontSize="22" TextColor="Black"/>
+                        <Label Text="{Binding PrixActuel.PrixEnchere,  StringFormat='Prix Actuel : {0}'}" TextColor="Black"
+                HorizontalOptions="CenterAndExpand" />
+                    </Grid>
+                </Frame>
+            </ContentView>
         </StackLayout>
+        
+        
     </ScrollView>
 </ContentPage>

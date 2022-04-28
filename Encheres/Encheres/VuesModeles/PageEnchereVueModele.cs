@@ -113,7 +113,7 @@ namespace Encheres.VuesModeles
         /// </summary>
         public void GetValeurActuelle()
         {
-            // lancement d'une task
+            // lancement d'une task permet de mettre en fils d'attente une tache
             Task.Run(async () =>
             {
                 // tant que c'est vrai ( boucle infini )
@@ -126,6 +126,28 @@ namespace Encheres.VuesModeles
                     // attendre 20 secondes
                     Thread.Sleep(2000);
                 }
+            });
+        }
+
+        public void GetbaisseprixActuelle()
+        {
+            Task.Run(async () =>
+            {
+                // tant que c'est vrai ( boucle infini )
+                while (true)
+                {
+                    // attribuer à la varibale PrixActuel la valeur de retour de la méthode getActualPrice en fonction de l'enchère voulu
+                    PrixActuel = await _apiServices.GetOneAsyncID<Encherir>("api/getActualPrice", Encherir.CollClasse, MonEnchere.Id.ToString());
+                    //permet d'enlever 2 euro pour le prix 
+                    PrixActuel.PrixEnchere = PrixActuel.PrixEnchere - 2;
+                    // nettoie la collclasse ( la vide )
+                    Encherir.CollClasse.Clear();
+
+                    // attendre 20 secondes
+                    Thread.Sleep(60000);
+                }
+
+
             });
         }
 
@@ -190,6 +212,10 @@ namespace Encheres.VuesModeles
             }
 
         }
+        // méthode pour enchére Inverse 
+
+
+
         #endregion
 
     }
