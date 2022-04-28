@@ -35,6 +35,7 @@ namespace Encheres.Vues
             var current = (Enchere)e.CurrentSelection.FirstOrDefault();
             Navigation.PushModalAsync(new PageEnchereVue(current));
         }
+
         //lien vers les enchére inverse accessible seulement connécté
         private void CollectionView_SelectionChanged_Inverse(object sender, SelectionChangedEventArgs e)
         {
