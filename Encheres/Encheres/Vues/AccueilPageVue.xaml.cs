@@ -68,5 +68,11 @@ namespace Encheres.Vues
             await remote.ScrollToAsync(0, 0, true);
 
         }
+
+        private void CollectionView_SelectionChanged_Flash(object sender, SelectionChangedEventArgs e)
+        {
+            var current = (Enchere)e.CurrentSelection.FirstOrDefault();
+            Navigation.PushModalAsync(new EchereFlashVue(current));
+        }
     }
 }

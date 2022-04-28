@@ -23,6 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Vues\EchereFlashVue.xaml.cs">
+      <DependentUpon>EchereFlashVue.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Vues\LoginPageVue.xaml.cs">
       <DependentUpon>LoginPageVue.xaml</DependentUpon>
     </Compile>
@@ -33,6 +36,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vues\AccueilVisiteurPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vues\EchereFlashVue.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vues\EnchereInverseVue.xaml">

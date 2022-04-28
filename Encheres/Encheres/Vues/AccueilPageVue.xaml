@@ -90,7 +90,7 @@
 
                 </StackLayout>
                 <StackLayout VerticalOptions="Start" Padding="30,0,10,0">
-                    <CollectionView IsVisible="{Binding VisibleEnchereEnCoursTypeFlash}" ItemsSource="{Binding MaListeEncheresEnCoursTypeFlash}"  SelectionChanged="CollectionView_SelectionChanged_1" SelectionMode="Single" BackgroundColor="WhiteSmoke">
+                    <CollectionView IsVisible="{Binding VisibleEnchereEnCoursTypeFlash}" ItemsSource="{Binding MaListeEncheresEnCoursTypeFlash}"  SelectionChanged="CollectionView_SelectionChanged_Flash" SelectionMode="Single" BackgroundColor="WhiteSmoke">
 
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
