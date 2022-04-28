@@ -32,6 +32,7 @@ namespace Encheres.VuesModeles
 
             tmps = new DecompteTimer();
             this.GetTimerRemaining(param.Datefin);
+            this.GetbaisseprixActuelle();
             this.GetValeurActuelle();
             this.SetEnchereAuto();
             this.SixDernieresEncheres();
@@ -142,9 +143,8 @@ namespace Encheres.VuesModeles
                     PrixActuel.PrixEnchere = PrixActuel.PrixEnchere - 2;
                     // nettoie la collclasse ( la vide )
                     Encherir.CollClasse.Clear();
-
                     // attendre 20 secondes
-                    Thread.Sleep(60000);
+                    Thread.Sleep(6000);
                 }
 
 

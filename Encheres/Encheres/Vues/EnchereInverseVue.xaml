@@ -60,7 +60,7 @@
 
                         <!--affichage du prix actuelle-->
                         <Label  Grid.Row=" 0" Grid.Column="0" Text="Prix actuel :" HorizontalOptions="StartAndExpand"  FontSize="22" TextColor="Black"/>
-                        <Label Text="{Binding PrixActuel.PrixEnchere,  StringFormat='Prix Actuel : {0}'}" TextColor="Black"
+                        <Label Text="{Binding PrixActuel.PrixEnchere,  StringFormat='{0}'}" TextColor="Black" Grid.Column="1"
                 HorizontalOptions="CenterAndExpand" />
                     </Grid>
                 </Frame>
