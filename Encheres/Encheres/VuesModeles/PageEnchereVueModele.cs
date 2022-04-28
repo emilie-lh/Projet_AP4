@@ -107,19 +107,32 @@ namespace Encheres.VuesModeles
                 }
             });
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public void GetValeurActuelle()
         {
+            // lancement d'une task
             Task.Run(async () =>
             {
+                // tant que c'est vrai ( boucle infini )
                 while (true)
                 {
+                    // attribuer à la varibale PrixActuel la valeur de retour de la méthode getActualPrice en fonction de l'enchère voulu
                     PrixActuel = await _apiServices.GetOneAsyncID<Encherir>("api/getActualPrice", Encherir.CollClasse, MonEnchere.Id.ToString());
+                    // nettoie la collclasse ( la vide )
                     Encherir.CollClasse.Clear();
+                    // attendre 20 secondes
                     Thread.Sleep(2000);
                 }
             });
         }
 
+        /// <summary>
+        /// affichage dees six derniers enchéreurs
+        /// enchère classique
+        /// </summary>
         public void SixDernieresEncheres()
         {
             Task.Run(async () =>
@@ -133,26 +146,38 @@ namespace Encheres.VuesModeles
                 }
             });
         }
-
+        /// <summary>
+        /// automatisation d'une enchère
+        /// </summary>
         public void SetEnchereAuto()
         {
-
+            // lancement d'une task
             Task.Run(async () =>
             {
+                // recupere la valeur de l'ID du user connecter et le stock pour enregistrer l'utilisateur qui fait une action
                 IdUser = await SecureStorage.GetAsync("ID");
-
+                // tant que le temps restant est supérieur a zéro on lance la boucle
                 while (tmps.TempsRestant > TimeSpan.Zero)
                 {
+                    // si le prix actuel est non nul et que l'enchéreur n'est pas vous a lors lance la boucle
                     if (PrixActuel != null && PrixActuel.Id != int.Parse(IdUser))
                     {
+                        // création d'une variable qui correspond au prix actuel d'une enchère auquel on ajoute 1
                         float paramValeur = PrixActuel.PrixEnchere + 1;
+                        // création d'une variable  qui permet de poster la nouvelle valeur d'une enchérir
                         int resultat = await _apiServices.PostAsync<Encherir>(new Encherir(paramValeur, int.Parse(IdUser), MonEnchere.Id, 0), "api/postEncherir");
 
                     }
+                    // met a jour toutes les 10 secondes
                     Thread.Sleep(10000);
                 }
             });
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="param"></param>
         public async void EncherirManuel(float param)
         {
             IdUser = await SecureStorage.GetAsync("ID");
