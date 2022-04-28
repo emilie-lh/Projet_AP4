@@ -1,5 +1,4 @@
-﻿using Android.Content.Res;
-using Encheres.Modeles;
+﻿using Encheres.Modeles;
 using Encheres.VuesModeles;
 using System;
 using System.Collections.Generic;
