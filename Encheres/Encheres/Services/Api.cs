@@ -39,8 +39,18 @@ namespace Encheres.Services
                 return null;
             }
         }
-        
 
+
+        /// <summary>
+        /// Cette methode est générique
+        /// Cette méthode permet de recuperer la liste de toutes les occurences de la table.
+        /// </summary>
+        /// <typeparam name="T">la classe concernée</typeparam>
+        /// <param name="paramUrl">l'adresse de l'API</param>
+        /// <param name="param">la collection de classe concernee</param>
+        ///
+        ///
+        /// <returns>la liste des occurences</returns>
         public async Task<ObservableCollection<T>> GetAllAsync2<T>(string paramUrl, List<T> param, object param2)
         {
 
