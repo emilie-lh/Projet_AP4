@@ -15,11 +15,11 @@ namespace Encheres.Vues
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AccueilPageVue : ContentPage
     {
-        AccueilVueModele vueModel;
+        AccueilVueModele vueModel0;
         public AccueilPageVue()
         {
             InitializeComponent();
-           BindingContext  = new AccueilPageVueModele();
+           BindingContext = vueModel0 = new AccueilVueModele();
 
         }
         private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -35,24 +35,24 @@ namespace Encheres.Vues
 
         private void classique_Clicked(object sender, EventArgs e)
         {
-            vueModel.VisibleEnchereEnCoursTypeClassique = true;
-            vueModel.VisibleEnchereEnCoursTypeInverse = false;
-            vueModel.VisibleEnchereEnCoursTypeFlash = false;
+            vueModel0.VisibleEnchereEnCoursTypeClassique = true;
+            vueModel0.VisibleEnchereEnCoursTypeInverse = false;
+            vueModel0.VisibleEnchereEnCoursTypeFlash = false;
 
         }
 
         private void inverse_Clicked(object sender, EventArgs e)
         {
-            vueModel.VisibleEnchereEnCoursTypeClassique = false;
-            vueModel.VisibleEnchereEnCoursTypeInverse = true;
-            vueModel.VisibleEnchereEnCoursTypeFlash = false;
+            vueModel0.VisibleEnchereEnCoursTypeClassique = false;
+            vueModel0.VisibleEnchereEnCoursTypeInverse = true;
+            vueModel0.VisibleEnchereEnCoursTypeFlash = false;
         }
 
         private void flash_Clicked(object sender, EventArgs e)
         {
-            vueModel.VisibleEnchereEnCoursTypeClassique = false;
-            vueModel.VisibleEnchereEnCoursTypeInverse = false;
-            vueModel.VisibleEnchereEnCoursTypeFlash = true;
+            vueModel0.VisibleEnchereEnCoursTypeClassique = false;
+            vueModel0.VisibleEnchereEnCoursTypeInverse = false;
+            vueModel0.VisibleEnchereEnCoursTypeFlash = true;
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {

@@ -47,7 +47,33 @@
 
                 </Frame>
                 <StackLayout VerticalOptions="Start" Padding="30,10,10,0">
-                    <CollectionView IsVisible="{Binding VisibleEnchereEnCoursTypeClassique}" ItemsSource="{Binding MaListeEncheresEnCoursTypeClassique}"  SelectionChanged="CollectionView_SelectionChanged_1"  SelectionMode="Single" BackgroundColor="WhiteSmoke">
+                    <CollectionView IsVisible="{Binding VisibleEnchereEnCoursTypeClassique}" ItemsSource="{Binding MaListeEncheresEnCoursTypeClassique}" SelectionMode="Single" BackgroundColor="WhiteSmoke">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10" Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*" />
+                                        <RowDefinition Height="1.5*" />
+                                        <RowDefinition Height="1*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding LeProduit.Photo}" Aspect="Fill" Grid.RowSpan="2" HeightRequest="100" Grid.Column="0"/>
+                                    <Label Text="{Binding LeProduit.Nom}" Grid.Row="1" Grid.Column="1" TextColor="Black" />
+                                    <Label Text="{ Binding LeProduit.Prixreel, StringFormat='{0} €'}" Grid.Row="1" Grid.Column="2" TextColor="Black" />
+                                    <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
+                                         VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+                <StackLayout VerticalOptions="Start" Padding="30,0,10,0">
+
+                    <CollectionView IsVisible="{Binding VisibleEnchereEnCoursTypeInverse}" ItemsSource="{Binding MaListeEncheresEnCoursTypeInverse}" SelectionMode="Single" BackgroundColor="WhiteSmoke">
+
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Padding="10" Margin="10">
@@ -68,35 +94,10 @@
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
-                </StackLayout>
-                <StackLayout VerticalOptions="Start" Padding="30,0,10,0">
-
-                    <CollectionView IsVisible="{Binding VisibleEnchereEnCoursTypeInverse}" ItemsSource="{Binding MaListeEncheresEnCoursTypeInverse}" SelectionChanged="CollectionView_SelectionChanged_1" SelectionMode="Single" BackgroundColor="WhiteSmoke">
-
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Padding="10" Margin="10">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="2*" />
-                                        <RowDefinition Height="1.5*" />
-                                        <RowDefinition Height="1*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="2*" />
-                                        <ColumnDefinition Width="2*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="{Binding LeProduit.Photo}" Aspect="Fill" Grid.RowSpan="2" HeightRequest="100" Grid.Column="0"/>
-                                    <Label Text="{Binding LeProduit.Nom}" Grid.Row="1" Grid.Column="1" TextColor="Black" />
-                                    <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
-                                         VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
 
                 </StackLayout>
                 <StackLayout VerticalOptions="Start" Padding="30,0,10,0">
-                    <CollectionView IsVisible="{Binding VisibleEnchereEnCoursTypeFlash}" ItemsSource="{Binding MaListeEncheresEnCoursTypeFlash}"  SelectionChanged="CollectionView_SelectionChanged_1" SelectionMode="Single" BackgroundColor="WhiteSmoke">
+                    <CollectionView IsVisible="{Binding VisibleEnchereEnCoursTypeFlash}" ItemsSource="{Binding MaListeEncheresEnCoursTypeFlash}" SelectionMode="Single" BackgroundColor="WhiteSmoke">
 
                         <CollectionView.ItemTemplate>
                             <DataTemplate>

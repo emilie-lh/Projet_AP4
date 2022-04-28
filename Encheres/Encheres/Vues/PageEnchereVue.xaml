@@ -80,11 +80,11 @@
                         <Grid RowDefinitions="2*,2*" ColumnDefinitions="180,100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
 
-                            <Label  Grid.Row=" 0" Grid.Column="0" Text="Votre proposition :" HorizontalOptions="StartAndExpand"  FontSize="22" TextColor="Black"/>
+                            <Label  Grid.Row=" 0" Grid.Column="0" Text="Prix actuel :" HorizontalOptions="StartAndExpand"  FontSize="22" TextColor="Black"/>
                             <Label Grid.Row=" 0" Grid.Column="1" Text="{Binding PrixActuel.PrixEnchere, StringFormat='{0} €'}" FontSize="25" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"/>
-
-                            <Entry x:Name="SaisieEnchere" Grid.Row=" 1" Grid.Column="0" HorizontalOptions="StartAndExpand" Placeholder="Saisir enchere" PlaceholderColor="Black" TextColor="Black"/>
-                            <Button x:Name="ButtonValiderEnchere" HorizontalOptions="StartAndExpand" Clicked="ButtonValiderEnchere_Clicked" BackgroundColor="#BDBDBD " Image="send_.png" Grid.Row="1" Grid.Column="1"/>
+                            <Label Grid.Row=" 1" Grid.Column="0" Text="votre offre :" HorizontalOptions="StartAndExpand"  FontSize="22" TextColor="Black" />
+                            <Entry x:Name="SaisieEnchere" Grid.Row=" 1" Grid.Column="1" HorizontalOptions="StartAndExpand" Placeholder="Saisir enchere" PlaceholderColor="Black" TextColor="Black"/>
+                            <Button x:Name="ButtonValiderEnchere" HorizontalOptions="StartAndExpand" Clicked="ButtonValiderEnchere_Clicked" BackgroundColor="#BDBDBD " Image="send_.png" Grid.Row="1" Grid.Column="3"/>
                         </Grid>
                     </Frame>
                 </ContentView>

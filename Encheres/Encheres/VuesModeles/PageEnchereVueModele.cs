@@ -146,7 +146,7 @@ namespace Encheres.VuesModeles
                     if (PrixActuel != null && PrixActuel.Id != int.Parse(IdUser))
                     {
                         float paramValeur = PrixActuel.PrixEnchere + 1;
-                        int resultat = await _apiServices.PostAsync<Encherir>(new Encherir(paramValeur, int.Parse(IdUser), MonEnchere.Id, 0, ""), "api/postEncherir");
+                        int resultat = await _apiServices.PostAsync<Encherir>(new Encherir(paramValeur, int.Parse(IdUser), MonEnchere.Id, 0), "api/postEncherir");
 
                     }
                     Thread.Sleep(10000);
@@ -160,7 +160,7 @@ namespace Encheres.VuesModeles
 
             if (PrixActuel != null)
             {
-                int resultat = await _apiServices.PostAsync<Encherir>(new Encherir(param, int.Parse(IdUser), MonEnchere.Id, 0, ""), "api/postEncherir");
+                int resultat = await _apiServices.PostAsync<Encherir>(new Encherir(param, int.Parse(IdUser), MonEnchere.Id, 0), "api/postEncherir");
 
             }
 

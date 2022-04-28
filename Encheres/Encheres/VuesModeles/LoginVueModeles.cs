@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Encheres.VuesModeles
@@ -76,6 +77,7 @@ namespace Encheres.VuesModeles
                 if (connexion != default(User))
                 {
                     auth = true;
+                    await SecureStorage.SetAsync("ID", connexion.Id.ToString());
                     await Application.Current.MainPage.Navigation.PushModalAsync(new AccueilPageVue());
 
                 }
