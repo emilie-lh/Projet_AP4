@@ -70,9 +70,12 @@
                                         <ColumnDefinition Width="2*" />
                                         <ColumnDefinition Width="2*" />
                                     </Grid.ColumnDefinitions>
-                                    <!-- affichage des donnée de la liste leproduit -->
+                                    <!-- affichage des donnée de la liste  leproduit -->
+                                    <!--Mise en place de la photo des enchéres-->
                                     <Image Source="{Binding LeProduit.Photo}" Aspect="Fill" Grid.RowSpan="2" HeightRequest="100" Grid.Column="0"/>
+                                    <!--Mise en place de la photo de l'enchére-->
                                     <Label Text="{Binding LeProduit.Nom}" Grid.Row="1" Grid.Column="1" TextColor="Black" />
+                                   <!--Mise en place du prix de l'enchére-->
                                     <Label Text="{ Binding LeProduit.Prixreel, StringFormat='{0} €'}" Grid.Row="1" Grid.Column="2" TextColor="Black" />
                                     <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
                                          VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
@@ -100,6 +103,7 @@
                                     </Grid.ColumnDefinitions>
                                     <Image Source="{Binding LeProduit.Photo}" Aspect="Fill" Grid.RowSpan="2" HeightRequest="100" Grid.Column="0"/>
                                     <Label Text="{Binding LeProduit.Nom}" Grid.Row="1" Grid.Column="1" TextColor="Black" />
+                                    <Label Text="{ Binding LeProduit.Prixreel, StringFormat='{0} €'}" Grid.Row="1" Grid.Column="2" TextColor="Black" />
                                     <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
                                          VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
                                 </Grid>
@@ -126,6 +130,7 @@
                                     </Grid.ColumnDefinitions>
                                     <Image Source="{Binding LeProduit.Photo}" Aspect="Fill" Grid.RowSpan="2" HeightRequest="100" Grid.Column="0"/>
                                     <Label Text="{Binding LeProduit.Nom}" Grid.Row="1" Grid.Column="1" TextColor="Black" />
+                                    <Label Text="{ Binding LeProduit.Prixreel, StringFormat='{0} €'}" Grid.Row="1" Grid.Column="2" TextColor="Black" />
                                     <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
                                          VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
                                 </Grid>

@@ -12,9 +12,12 @@ using Xamarin.Forms.Xaml;
 
 namespace Encheres.Vues
 {
+    //page accessible seulement une fois connécté
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AccueilPageVue : ContentPage
     {
+        
         AccueilVueModele vueModel0;
         public AccueilPageVue()
         {
@@ -31,6 +34,12 @@ namespace Encheres.Vues
         {
             var current = (Enchere)e.CurrentSelection.FirstOrDefault();
             Navigation.PushModalAsync(new PageEnchereVue(current));
+        }
+        //lien vers les enchére inverse accessible seulement connécté
+        private void CollectionView_SelectionChanged_Inverse(object sender, SelectionChangedEventArgs e)
+        {
+            var current = (Enchere)e.CurrentSelection.FirstOrDefault();
+            Navigation.PushModalAsync(new EnchereInverseVue(current));
         }
 
         private void classique_Clicked(object sender, EventArgs e)
