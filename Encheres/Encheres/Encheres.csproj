@@ -23,6 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Appshell.xaml.cs">
+      <DependentUpon>Appshell.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Vues\EchereFlashVue.xaml.cs">
       <DependentUpon>EchereFlashVue.xaml</DependentUpon>
     </Compile>
@@ -32,6 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Appshell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Vues\AccueilPageVue.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
