@@ -15,10 +15,23 @@ namespace Encheres.Vues
     {
         //lien vers la page VueMOdele de tout les type d'enchere
         PageEnchereVueModele VuesModele;
+        
+
         public EnchereInverseVue(Enchere param)
         {
             InitializeComponent();
             BindingContext = VuesModele = new PageEnchereVueModele(param);
         }
+
+   
+        
+
+        
+
+        private void ButtonValiderEnchereInverse_Clicked(object sender, EventArgs e)
+        {
+            if (SaisieEnchere.Text != null) VuesModele.EncherirManuellement(float.Parse(SaisieEnchere.Text));
+
+        }
+
     }
-}

@@ -65,6 +65,12 @@
                     </Grid>
                 </Frame>
             </ContentView>
+            <ContentView IsVisible="{Binding VisibleSaisieEnchere}">
+
+                <Entry x:Name="SaisieEnchere" Grid.Row=" 1" Grid.Column="0" HorizontalOptions="StartAndExpand" Placeholder="Saisir enchere" PlaceholderColor="Black" TextColor="Black"/>
+
+                <Button x:Name="ButtonValiderEnchereInverse_Clicked" HorizontalOptions="StartAndExpand"  Text="Je le veux" Clicked="ButtonValiderEnchereInverse_Clicked" BackgroundColor="#BDBDBD "  Grid.Row="1" Grid.Column="3"/>
+            </ContentView>
         </StackLayout>
         
         

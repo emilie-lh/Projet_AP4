@@ -23,6 +23,13 @@ namespace Encheres.VuesModeles
         private ObservableCollection<Encherir> _maListeSixDernieresEncheres;
         private Encherir _prixActuel;
         private string _idUser;
+        private User _unUser;
+        private float _plafond;
+        private float _saisieSecondes;
+        public bool OnCancel;
+        private bool _visibleSaisieEnchere;
+        private bool _visibleGagnant;
+        TimeSpan interval;
         #endregion
         #region Constructeurs
 
@@ -30,13 +37,20 @@ namespace Encheres.VuesModeles
         {
             _monEnchere = param;
 
+            DateTime datefin = param.Datefin;
+            interval = datefin - DateTime.Now;
+            this.VisibleSaisieEnchere = true;
+
             tmps = new DecompteTimer();
             this.GetTimerRemaining(param.Datefin);
-            this.GetbaisseprixActuelle();
+            
             this.GetValeurActuelle();
             this.SetEnchereAuto();
             this.SixDernieresEncheres();
+            this.GetGagnant(MonEnchere.Id.ToString());
         }
+
+
         #endregion
         #region Getters/Setters
 
@@ -83,6 +97,40 @@ namespace Encheres.VuesModeles
             get => _idUser;
             set => _idUser = value;
         }
+        public User UnUser
+        {
+            get
+            {
+                return _unUser;
+            }
+            set
+            {
+                SetProperty(ref _unUser, value);
+            }
+        }
+        public bool VisibleSaisieEnchere
+        {
+            get { return _visibleSaisieEnchere; }
+            set { SetProperty(ref _visibleSaisieEnchere, value); }
+        }
+        public bool VisibleGagnant
+        {
+            get { return _visibleGagnant; }
+            set { SetProperty(ref _visibleGagnant, value); }
+        }
+
+        public float Plafond
+        {
+            get => _plafond;
+            set { SetProperty(ref _plafond, value); }
+        }
+
+        public float SaisieSecondes
+        {
+            get => _saisieSecondes;
+            set { SetProperty(ref _saisieSecondes, value); }
+        }
+
         public ObservableCollection<Encherir> MaListeSixDernieresEncheres
         {
             get => _maListeSixDernieresEncheres;
@@ -130,26 +178,7 @@ namespace Encheres.VuesModeles
             });
         }
 
-        public void GetbaisseprixActuelle()
-        {
-            Task.Run(async () =>
-            {
-                // tant que c'est vrai ( boucle infini )
-                while (true)
-                {
-                    // attribuer à la varibale PrixActuel la valeur de retour de la méthode getActualPrice en fonction de l'enchère voulu
-                    PrixActuel = await _apiServices.GetOneAsyncID<Encherir>("api/getActualPrice", Encherir.CollClasse, MonEnchere.Id.ToString());
-                    //permet d'enlever 2 euro pour le prix 
-                    PrixActuel.PrixEnchere = PrixActuel.PrixEnchere - 2;
-                    // nettoie la collclasse ( la vide )
-                    Encherir.CollClasse.Clear();
-                    // attendre 20 secondes
-                    Thread.Sleep(6000);
-                }
-
-
-            });
-        }
+       
 
         /// <summary>
         /// affichage dees six derniers enchéreurs
@@ -214,6 +243,39 @@ namespace Encheres.VuesModeles
         }
         // méthode pour enchére Inverse 
 
+        //méthode pour récupérer le gagant 
+        public void GetGagnant(string param)
+        {
+            bool fin = false;
+            Task.Run(async () =>
+            {
+                while (fin == false)
+                {
+
+                    //vérification le temps restant de lenchère, si <= 0 alors on récupère le gagant et l'afficher 
+                    if (tmps.TempsRestant <= TimeSpan.Zero) UnUser = await _apiServices.GetOneAsyncID<User>("api/getGagnant", User.CollClasse, param);
+                    if (UnUser != null)
+                    {
+                        User.CollClasse.Clear();
+                        VisibleGagnant = true;
+                        fin = true;
+                    }
+                }
+            });
+
+
+        }
+
+        // probléme 2 fois la méthode 
+        //méthode pour encherir manuellement 
+        public async void EncherirManuellement(float param)
+        {
+
+            IdUser = await SecureStorage.GetAsync("ID");
+            int resultat = await _apiServices.PostAsync<Encherir>(new Encherir(param, int.Parse(IdUser), MonEnchere.Id, 0, ""), "api/postEncherirInverse");
+            tmps.TempsRestant = TimeSpan.Zero;
+            VisibleSaisieEnchere = false;
+        }
 
 
         #endregion
