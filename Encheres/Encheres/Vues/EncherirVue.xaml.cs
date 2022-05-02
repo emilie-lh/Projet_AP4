@@ -14,11 +14,11 @@ namespace Encheres.Vues
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EncherirVue : ContentPage
     {
-        private EncherirVueModele VueModele;
+        private EnchereVueModele VueModele;
         public EncherirVue(Enchere paramEnchere)
         {
             InitializeComponent();
-            BindingContext = VueModele = new EncherirVueModele(paramEnchere);
+            BindingContext = VueModele = new EnchereVueModele(paramEnchere);
             VueModele.GetEnchereActuelle();
         }
     }

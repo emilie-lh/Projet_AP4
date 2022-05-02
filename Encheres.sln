@@ -7,10 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encheres.Android", "Enchere
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Encheres", "Encheres\Encheres\Encheres.csproj", "{180A55C7-EC71-457E-89FC-44B6B64CD45A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncheresTests", "Encheres\EncheresTests\EncheresTests.csproj", "{F744617C-D5E4-495B-A2EE-A30DF0E39AC3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "loginvueTest1", "Encheres\loginvueTest1\loginvueTest1.csproj", "{0F823EB7-3BFB-4089-BC6F-F69F11DDB5F0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,14 +25,6 @@ Global
 		{180A55C7-EC71-457E-89FC-44B6B64CD45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{180A55C7-EC71-457E-89FC-44B6B64CD45A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{180A55C7-EC71-457E-89FC-44B6B64CD45A}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{F744617C-D5E4-495B-A2EE-A30DF0E39AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F744617C-D5E4-495B-A2EE-A30DF0E39AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F744617C-D5E4-495B-A2EE-A30DF0E39AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F744617C-D5E4-495B-A2EE-A30DF0E39AC3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F823EB7-3BFB-4089-BC6F-F69F11DDB5F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F823EB7-3BFB-4089-BC6F-F69F11DDB5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F823EB7-3BFB-4089-BC6F-F69F11DDB5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F823EB7-3BFB-4089-BC6F-F69F11DDB5F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

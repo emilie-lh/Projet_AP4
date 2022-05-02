@@ -73,7 +73,13 @@ namespace Encheres.Services
         }
 
       
-
+        /// <summary>
+        /// permet d'envoyer une instance créer ou modifier dans l'api
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="param"></param>
+        /// <param name="paramUrl"></param>
+        /// <returns></returns>
         public async Task<int> PostAsync<T>(T param, string paramUrl)
         {
 
@@ -91,8 +97,18 @@ namespace Encheres.Services
             catch (Exception ex)
             {
                 return 0;
+          
             }
         }
+
+        /// <summary>
+        /// récupere des donner a partir de l'id
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="paramUrl"></param>
+        /// <param name="param"></param>
+        /// <param name="paramID"></param>
+        /// <returns></returns>
         public async Task<T> GetOneAsyncID<T>(string paramUrl, List<T> param, string paramID)
         {
             try
@@ -113,6 +129,16 @@ namespace Encheres.Services
                 return default(T);
             }
         }
+
+        /// <summary>
+        /// recupere une list de donnée a partir d'une clé et d'un id
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="paramUrl"></param>
+        /// <param name="param"></param>
+        /// <param name="cle"></param>
+        /// <param name="param2"></param>
+        /// <returns></returns>
         public async Task<ObservableCollection<T>> GetAllAsyncID<T>(string paramUrl, List<T> param, string cle, int param2)
         {
 

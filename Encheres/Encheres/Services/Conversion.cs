@@ -10,6 +10,12 @@ namespace Encheres.Services
 {
     static class Conversion
     {
+        /// <summary>
+        /// convertir à partir de la base 64
+        /// un objet en imageSource
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
         public static ImageSource ConvertFromBase64(string param)
         {
 
@@ -18,6 +24,13 @@ namespace Encheres.Services
 
 
         }
+
+        /// <summary>
+        /// convertir en base64 un objet stream
+        /// et compresse le taille du fichier
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns></returns>
         public static string ConvertToBase64(this Stream stream)
         {
             if (stream is MemoryStream memoryStream)

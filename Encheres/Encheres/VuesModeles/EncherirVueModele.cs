@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Encheres.VuesModeles
 {
-    class EncherirVueModele
+    class EnchereVueModele
     {
         #region Attributs
 
@@ -14,7 +14,7 @@ namespace Encheres.VuesModeles
 
         #region Constructeurs
 
-        public EncherirVueModele(Enchere paramEnchere)
+        public EnchereVueModele(Enchere paramEnchere)
         {
         }
 

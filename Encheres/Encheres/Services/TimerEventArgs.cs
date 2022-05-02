@@ -6,7 +6,7 @@ namespace Encheres.Services
 {
     public class TimerEventArgs : EventArgs
     {
-        public TimeSpan TempsRestant { get; set; }
+        public TimeSpan TempsRestant { get; set; } // création d'un variable et du getter/stter
 
     }
 }
