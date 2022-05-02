@@ -8,7 +8,6 @@ namespace Encheres.Modeles
     {
         #region Attributs
         private int _id;
-
         private int _idUser;
         private int _idEnchere;
         private float _prixEnchere;

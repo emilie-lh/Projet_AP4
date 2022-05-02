@@ -14,6 +14,13 @@ namespace Encheres.Services
         #region Attributs 
         #endregion
         #region Methodes
+
+        /// <summary>
+        /// permet à l'authentification d'un user a partir de son email et de son mdp
+        /// </summary>
+        /// <param name="unUser"></param>
+        /// <param name="paramUrl"></param>
+        /// <returns></returns>
         public async Task<User> GetAuthAsync(User unUser, string paramUrl)
         {
             string jsonString = @"{'Email':'" + unUser.Email + "', 'Password':'" + unUser.Password+ "'}";

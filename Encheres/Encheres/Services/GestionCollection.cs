@@ -8,6 +8,12 @@ namespace Encheres.Services
 {
     class GestionCollection
     {
+        /// <summary>
+        /// recupere les valeurs d'une liste choisis
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="paramList"></param>
+        /// <returns></returns>
         public static ObservableCollection<T> GetListes<T>(List<T> paramList)
         {
             ObservableCollection<T> resultat = new ObservableCollection<T>();
@@ -19,6 +25,15 @@ namespace Encheres.Services
 
             return resultat;
         }
+
+        /// <summary>
+        /// recupere un objet a partir de son ID 
+        /// dans une liste choisis
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="param"></param>
+        /// <param name="param2"></param>
+        /// <returns></returns>
         public static T GetObjet<T>(List<T> param, int param2)
 
         {

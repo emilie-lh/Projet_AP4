@@ -12,6 +12,14 @@ namespace Encheres.Services
     {
          
         #region Methodes
+
+        /// <summary>
+        /// permet d'inscrire un utilisateur à partir
+        /// des donnée de son instance
+        /// </summary>
+        /// <param name="unUser"></param>
+        /// <param name="paramUrl"></param>
+        /// <returns></returns>
         public async Task<bool> PostRegistrationAsync(User unUser, string paramUrl)
         {
 

@@ -35,20 +35,21 @@ namespace Encheres.Services
         #region methodes
 
 
-
+        // ajoute ou baisse la valeur de la variable
         event EventHandler IDecompteTimer.Complet
         {
             add { CompletEvent += value; }
             remove { CompletEvent -= value; }
         }
 
+        // ajoute ou baisse la valeur de la variable
         event EventHandler IDecompteTimer.Avorte
         {
             add { _AvorteEvent += value; }
             remove { _AvorteEvent -= value; }
         }
 
-
+        // ajoute ou baisse la valeur de la variable
         event EventHandler<TimerEventArgs> IDecompteTimer.TicTac
         {
 
@@ -57,6 +58,10 @@ namespace Encheres.Services
 
         }
 
+        /// <summary>
+        /// demarre le compteur et decompte le temps
+        /// </summary>
+        /// <param name="CountdownTime"></param>
         public void Start(TimeSpan CountdownTime)
         {
             TempsRestant = CountdownTime;
@@ -82,16 +87,28 @@ namespace Encheres.Services
             });
         }
 
+        /// <summary>
+        /// change la valeur de la varibale stoppe sur false
+        /// </summary>
         public void Stop()
         {
             Stoppe = true;
         }
 
+        /// <summary>
+        /// lance le compteur
+        /// </summary>
+        /// <param name="CountdownTime"></param>
+        /// <exception cref="NotImplementedException"></exception>
         void IDecompteTimer.Start(TimeSpan CountdownTime)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// stoppe le compteur
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         void IDecompteTimer.Stop()
         {
             throw new NotImplementedException();
