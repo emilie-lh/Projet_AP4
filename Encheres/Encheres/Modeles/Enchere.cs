@@ -16,6 +16,9 @@ namespace Encheres.Modeles
         private double _prixReserve; // variable désignant le prix de réserve d'une enchère
         private TypeEncheres leTypeEnchere; // variable désignant le type d'enchère correspondant
         private Produit leProduit; // variable désignant le produit mis aux enchères
+        private string _tableauFlash;
+
+        public string TableauFlash { get => _tableauFlash; set => _tableauFlash = value; }
 
         #endregion
 

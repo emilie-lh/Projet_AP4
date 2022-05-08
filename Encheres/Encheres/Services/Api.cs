@@ -160,6 +160,26 @@ namespace Encheres.Services
             }
         }
 
+        public async Task<T> GetOneAsync1<T>(string paramUrl, List<T> param, T paramT)
+        {
+            try
+            {
+                var jsonString = JsonConvert.SerializeObject(paramT);
+
+                var clientHttp = new HttpClient();
+                var jsonContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+                var response = await clientHttp.PostAsync(Constantes.BaseApiAddress + paramUrl, jsonContent);
+                var json = await response.Content.ReadAsStringAsync();
+                T res = JsonConvert.DeserializeObject<T>(json, new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return default(T);
+            }
+        }
+
         /// <summary>
         /// Get One Item whith a list of parameters in the request
         /// This method is generic and work with values that have toString() method

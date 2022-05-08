@@ -11,7 +11,6 @@ namespace Encheres
         {
             InitializeComponent();
             //page de demarrage 
-
             MainPage = new AccueilVisiteurPage();
         }
 
