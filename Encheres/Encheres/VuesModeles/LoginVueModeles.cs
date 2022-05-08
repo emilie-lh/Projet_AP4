@@ -28,6 +28,7 @@ namespace Encheres.VuesModeles
         {
             CommandeButtonAuthentification = new Command(ActionPageAuthentification);
             CommandeButtonRegister = new Command(ActionPageRegister);
+            ButtonRetourAc = new Command(Retoutner);
         }
 
         #endregion
@@ -36,6 +37,7 @@ namespace Encheres.VuesModeles
         public ICommand CommandeButtonAuthentification { get; }
         public ICommand CommandeButtonRegister { get; }
 
+        public ICommand ButtonRetourAc { get; }
         public string Password
         {
             get
@@ -95,7 +97,12 @@ namespace Encheres.VuesModeles
 
         }
         #endregion
-        
+
+
+        public async void Retoutner()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new AccueilVisiteurPage());
+        }
         /*
 
         // moi

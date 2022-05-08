@@ -152,7 +152,8 @@ namespace Encheres.VuesModeles
 
         public RegisterVueModeles(INavigation navigation)
         {
-            new Command(() => Gotoco());
+            ButtonRetour = new Command(Retout);
+            //new Command(() => Gotoco());
         }
 
 
@@ -160,13 +161,15 @@ namespace Encheres.VuesModeles
 
         #region Getters/Setters
 
+        public ICommand ButtonRetour { get; }
+
         #endregion
 
         #region Methodes
-        public async void Gotoco()
+
+        public async void Retout()
         {
-            var route = $"{nameof(RegisterVue)}";
-            await Shell.Current.GoToAsync(route);
+            await Application.Current.MainPage.Navigation.PushModalAsync(new AccueilVisiteurPage());
         }
 
         #endregion

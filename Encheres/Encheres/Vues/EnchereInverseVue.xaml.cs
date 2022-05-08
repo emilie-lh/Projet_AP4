@@ -15,7 +15,7 @@ namespace Encheres.Vues
     {
         //lien vers la page VueMOdele de tout les type d'enchere
         PageEnchereVueModele VuesModele;
-        
+
 
         public EnchereInverseVue(Enchere param)
         {
@@ -23,15 +23,23 @@ namespace Encheres.Vues
             BindingContext = VuesModele = new PageEnchereVueModele(param);
         }
 
-   
-        
 
-        
 
-        private void ButtonValiderEnchereInverse_Clicked(object sender, EventArgs e)
+
+
+        /// <summary>
+        /// si valeur de l'enchère = non nul
+        /// alors lance la méthode enchireManuellment
+        /// avec la valeur de l'enchère en paramamètre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonValiderlesEnchereInverse_Clicked(object sender, EventArgs e)
         {
-            if (SaisieEnchere.Text != null) VuesModele.EncherirManuellement(float.Parse(SaisieEnchere.Text));
+            if (SaisieEnchere.Text != null)
+                VuesModele.EncherirManuellement(float.Parse(SaisieEnchere.Text));
 
         }
 
     }
+}

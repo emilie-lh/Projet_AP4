@@ -60,16 +60,20 @@
 
                         <!--affichage du prix actuelle-->
                         <Label  Grid.Row=" 0" Grid.Column="0" Text="Prix actuel :" HorizontalOptions="StartAndExpand"  FontSize="22" TextColor="Black"/>
-                        <Label Text="{Binding PrixActuel.PrixEnchere,  StringFormat='{0}'}" TextColor="Black" Grid.Column="1"
+                        <Label x:Name="SaisieEnchere" Text="{Binding PrixActuel.PrixEnchere,  StringFormat='{0}'}" TextColor="Black" Grid.Column="1"
                 HorizontalOptions="CenterAndExpand" />
                     </Grid>
                 </Frame>
             </ContentView>
+            
             <ContentView IsVisible="{Binding VisibleSaisieEnchere}">
+                         <Button Text="Je le veux"
+                            FontSize="14"
+                            BackgroundColor="CadetBlue" Command="{Binding ButtonValiderlesEnchereInverse_Clicked}" 
+                            Padding="0" Margin="0,50,0,0" CornerRadius="15"
+                            Grid.Row="3" Grid.Column="1" 
+                    />
 
-                <Entry x:Name="SaisieEnchere" Grid.Row=" 1" Grid.Column="0" HorizontalOptions="StartAndExpand" Placeholder="Saisir enchere" PlaceholderColor="Black" TextColor="Black"/>
-
-                <Button x:Name="ButtonValiderEnchereInverse_Clicked" HorizontalOptions="StartAndExpand"  Text="Je le veux" Clicked="ButtonValiderEnchereInverse_Clicked" BackgroundColor="#BDBDBD "  Grid.Row="1" Grid.Column="3"/>
             </ContentView>
         </StackLayout>
         

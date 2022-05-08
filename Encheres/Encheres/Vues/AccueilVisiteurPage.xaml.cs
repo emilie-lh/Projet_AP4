@@ -73,5 +73,7 @@ namespace Encheres.Vues
 
             Navigation.PushModalAsync(new LoginPageVue());
         }
+
+       
     }
 }

@@ -19,6 +19,8 @@ namespace Encheres.Vues
             BindingContext = new LoginVueModeles();
         }
 
+      
+
 
     }
 }

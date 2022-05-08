@@ -21,6 +21,8 @@ namespace Encheres.Vues
         public RegisterVue()
         {
             InitializeComponent();
+            // liaison entre les commands binding et les méthodes
+            // de la vueModele
             BindingContext = new RegisterVueModeles(Navigation);
         }
 
@@ -126,6 +128,13 @@ namespace Encheres.Vues
 
                 (sender as Button).IsEnabled = true;
         }
+
+        //méthode pour retourner sur l'accueil
+        /*private void ButtonRetour(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new AccueilVisiteurPage());
+
+        }*/
 
     }
 }

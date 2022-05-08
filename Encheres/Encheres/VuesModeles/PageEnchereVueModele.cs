@@ -272,7 +272,7 @@ namespace Encheres.VuesModeles
         {
 
             IdUser = await SecureStorage.GetAsync("ID");
-            int resultat = await _apiServices.PostAsync<Encherir>(new Encherir(param, int.Parse(IdUser), MonEnchere.Id, 0, ""), "api/postEncherirInverse");
+            int resultat = await _apiServices.PostAsync<Encherir>(new Encherir(param, int.Parse(IdUser), MonEnchere.Id, 0), "api/postEncherirInverse");
             tmps.TempsRestant = TimeSpan.Zero;
             VisibleSaisieEnchere = false;
         }

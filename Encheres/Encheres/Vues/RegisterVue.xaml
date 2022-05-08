@@ -105,6 +105,12 @@
                         />
 
                     </StackLayout>
+                    <Button Text="Retour"
+                            FontSize="14"
+                            BackgroundColor="CadetBlue" Command="{Binding ButtonRetour}" 
+                            Padding="0" Margin="0,50,0,0" CornerRadius="15"
+                            Grid.Row="3" Grid.Column="1" 
+                    />
                 </StackLayout>
             </Grid>
         </ScrollView>

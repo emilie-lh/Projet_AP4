@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Encheres.Vues.AccueilVisiteurPage">
     <ContentPage.Content>
+    <!-- LIen API : 172.17.0.61:8000/documentation-->
+   
         
         <ScrollView x:Name="remote">
             <StackLayout BackgroundColor="Whitesmoke">
@@ -136,6 +138,8 @@
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
+                        
+                       
                     </CollectionView>
                 </StackLayout>
                 <!--Bouton pour un retour vers le haut de la page -->
